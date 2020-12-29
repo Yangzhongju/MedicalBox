@@ -1,0 +1,80 @@
+activity_main.xml
+
+
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:hint="用户名：" />
+
+    .<EditText
+        android:id="@+id/pass"
+        android:layout_width="match_parent"
+    android:hint="=密码："
+    android:inputType="textPassword"
+    android:layout_height="150px" />
+
+    <Button
+        android:id="@+id/Login"
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:hint="登录"
+        android:onClick="Check" />
+
+
+</LinearLayout>
+
+
+
+public class MainActivity extends AppCompatActivity {
+    EditText name ;//用户名
+    EditText pass ;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        //开始代码
+        name=(EditText)findViewById(R.id.name);
+        pass=(EditText)findViewById(R.id.pass);
+
+    }
+
+public void Check(View view) {
+        String mname = "Hello";
+        String mpass = "15pb";
+        String user = name.getText().toString().trim();
+        String pwd =  pass.getText().toString().trim();
+        if(user.equals(mname)&& pwd.equals(mpass))
+        {
+            Toast.makeText(this,"恭喜，通过",Toast.LENGTH_SHORT).show();
+
+        }
+        else{
+            Toast.makeText(this,"很遗憾，继续努力",Toast.LENGTH_SHORT).show();
+
+        }
+    }
+
+
+}
